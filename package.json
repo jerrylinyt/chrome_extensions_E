@@ -1,0 +1,23 @@
+{
+  "name": "chrome_extensions_e",
+  "version": "1.0.0",
+  "description": "chrome extensions",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JerryLin0920/chrome_extensions_E.git"
+  },
+  "author": "JerryLin <b00170025@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JerryLin0920/chrome_extensions_E/issues"
+  },
+  "homepage": "https://github.com/JerryLin0920/chrome_extensions_E#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  }
+}
