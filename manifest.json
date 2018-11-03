@@ -11,9 +11,16 @@
   ],
   "background": {
     "scripts": [
+      "js/chrome-promise.js",
+      "js/jquery.min.js",
       "background.js"
     ]
   },
+  "icons": { "16": "image/icon16.png",
+    "32": "image/icon32.png",
+    "48": "image/icon48.png",
+    "64": "image/icon64.png",
+    "128": "image/icon128.png" },
   "options_page": "options.html",
   "manifest_version": 2
 }
