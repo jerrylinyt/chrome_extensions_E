@@ -12,9 +12,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 </head>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <script src="js/jquery.min.js" charset="UTF-8"></script>
 <script src="js/bootstrap.min.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <script src="js/chrome-promise.js" data-instance="chromep"></script>
 
 <body>
@@ -22,8 +22,9 @@
   <div id="settingDiv">
     <h1>設定</h1>
     <div class='form-group row'>
+      <div class='col-sm-1 '></div>
       <div class='col-sm-3 '><h2>title</h2></div>
-      <div class='col-sm-6 '><h2>url</h2></div>
+      <div class='col-sm-6 '><h2>url(add "<span style="color:red">%s</span>" in url)</h2></div>
     </div>
     <div id="settingInput">
 
@@ -32,9 +33,26 @@
   <!--<div>-->
   <!--<p>Choose a different background color!</p>-->
   <!--</div>-->
-  <button id="save" type="button" class="btn-success form-control">儲存</button>
-  <p id="status" ></p>
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <button id="reset" type="button" class="btn-warning form-control">重設</button>
+    </div>
+    <div class="col-sm-5">
+      <button id="add" type="button" class="btn-info form-control">增加</button>
+    </div>
+    <div class="col-sm-5">
+      <button id="save" type="button" class="btn-success form-control">儲存</button>
+    </div>
+  </div>
+  <p id="status"></p>
 </form>
+
+<h3>example1: <span style="color: red">https://www.instagram.com/%s</span></h3>
+<div class="form-group row">
+
+  <img style="display: inline" src="readmeImage/image1.png" height="702" width="514"/>
+  <img style="display: inline" src="readmeImage/image2.png" height="702" width="514"/>
+  <img src="readmeImage/image3.png" height="587" width="575"/></div>
 </body>
 
 <script src="options.js"></script>
