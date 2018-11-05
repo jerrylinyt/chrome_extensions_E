@@ -9,6 +9,15 @@ const chromep = new ChromePromise();
 const settings = {
   default: [
     {checked: true, name: 'IG_ID', target: 'https://www.instagram.com/%s'},
+  ],
+  ex: [
+    {checked: true, name: 'nh_本=>', target: 'www.google.com'},
+    {checked: true, name: '紳士_本=>', target: 'www.facebook.com'},
+    {checked: true, name: 'e熊貓_本=>', target: 'www.facebook.com'},
+    {checked: true, name: 'ex熊貓_本=>', target: 'www.facebook.com'},
+    {checked: true, name: 'e熊貓_搜=>', target: 'www.facebook.com'},
+    {checked: true, name: 'ex熊貓_搜=>', target: 'www.facebook.com'},
+    {checked: true, name: '紳士_搜=>', target: 'www.facebook.com'},
   ]
 
 };

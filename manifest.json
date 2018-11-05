@@ -1,7 +1,7 @@
 {
   "name": "BUBU_GO",
-  "version": "1.0",
-  "description": "Build an Extension!",
+  "version": "1.01",
+  "description": "",
   "permissions": [
     "activeTab",
     "declarativeContent",
