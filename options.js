@@ -8,17 +8,17 @@ const chromep = new ChromePromise();
 
 const settings = {
   default: [
-    {name: 'Ig_ID', target: 'https://www.instagram.com/%s'},
-    {name: 'twitter_ID', target: 'https://twitter.com/%s'},
-    {name: 'Facebook_search',target: 'https://www.facebook.com/search/top/?q=%s'}
+    {sort:1, name: 'Ig_ID', target: 'https://www.instagram.com/%s'},
+    {sort:2, name: 'twitter_ID', target: 'https://twitter.com/%s'},
+    {sort:3, name: 'Facebook_search',target: 'https://www.facebook.com/search/top/?q=%s'}
   ],
   ex: [
-    {name: 'nh_搜尋/', target: 'https://nhentai.net/search/?q=%s'},
-    {name: '紳士_搜尋/', target: 'https://wnacg.com/albums-index-page-1-sname-%s.html'},
-    {name: 'e熊貓_搜尋/', target: 'https://e-hentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
-    {name: 'ex熊貓_搜尋/', target: 'https://exhentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
-    {name: 'nh_本/', target: 'https://nhentai.net/g/%s'},
-    {name: '紳士_本_ID/', target: 'https://wnacg.com/photos-index-aid-%s.html'},
+    {sort:1, name: 'nh_搜尋/', target: 'https://nhentai.net/search/?q=%s'},
+    {sort:2, name: '紳士_搜尋/', target: 'https://wnacg.com/albums-index-page-1-sname-%s.html'},
+    {sort:3, name: 'e熊貓_搜尋/', target: 'https://e-hentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
+    {sort:4, name: 'ex熊貓_搜尋/', target: 'https://exhentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
+    {sort:5, name: 'nh_本/', target: 'https://nhentai.net/g/%s'},
+    {sort:6, name: '紳士_本_ID/', target: 'https://wnacg.com/photos-index-aid-%s.html'},
   ]
 };
 let page = $("#settingInput");
@@ -35,12 +35,16 @@ function getNewLine(index, item = {name:'', url:''}) {
   });
 
   // let cb = $("<input class='form-control' type='checkbox' />").attr("checked", item.enabled).attr("name", `enabled_${index}`);
+
+  let sort = $("<input type='number' class='form-control' placeholder='sort' />").val(
+      item.sort).attr("name", `sort_${index}`);
   let name = $("<input class='form-control' placeholder='name' />").val(
       item.name).attr("name", `name_${index}`);
   let target = $("<input class='form-control' placeholder='target' />").val(
       item.target).attr("name", `target_${index}`);
   line
-  .append(functionBtn.append(delBtn))
+  .append(functionBtn.clone().append(delBtn))
+  .append(functionBtn.clone().append(sort))
   .append(nameBlock.append(name))
   .append(targetBlock.append(target));
   return line;
@@ -70,8 +74,8 @@ function constructOptions() {
     }
 
     page.empty();
+    allData = allData.sort(sortData);
     let index = 0;
-
     for (let item of allData) {
 
       page.append(getNewLine(index, item));
@@ -101,7 +105,19 @@ $("#save").click(function () {
       }
     }
   });
+  //get Max Sort Value
+  let sortArray = allData.map(obj => isNaN(obj.sort) ? undefined : parseInt(obj.sort));
+  let index = Math.max(...sortArray.filter(obj => !!obj));
 
+  allData
+  //filter empty
+  .filter(obj => Object.keys(obj).length > 0)
+  .sort(sortData)
+  .forEach((obj) => {
+    if (!obj.sort) {
+      obj.sort = ++index;
+    }
+  });
   //save option
   chromep.storage.sync
   .set({allData: allData.filter(obj => Object.keys(obj).length > 0)})
@@ -144,7 +160,14 @@ $("#add").click(() => {
 
 
 
-
+function sortData (o1, o2) {
+  if (!o1.sort) {
+    return 1;
+  } else if (!o2.sort) {
+    return -1;
+  }
+  return o1.sort > o2.sort ? 1 : -1;
+}
 
 //initPageSetting
 document.addEventListener('DOMContentLoaded', constructOptions);
