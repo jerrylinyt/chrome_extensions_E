@@ -8,18 +8,18 @@ const chromep = new ChromePromise();
 
 const settings = {
   default: [
-    {checked: true, name: 'IG_ID', target: 'https://www.instagram.com/%s'},
+    {name: 'Ig_ID', target: 'https://www.instagram.com/%s'},
+    {name: 'twitter_ID', target: 'https://twitter.com/%s'},
+    {name: 'Facebook_search',target: 'https://www.facebook.com/search/top/?q=%s'}
   ],
   ex: [
-    {checked: true, name: 'nh_本=>', target: 'www.google.com'},
-    {checked: true, name: '紳士_本=>', target: 'www.facebook.com'},
-    {checked: true, name: 'e熊貓_本=>', target: 'www.facebook.com'},
-    {checked: true, name: 'ex熊貓_本=>', target: 'www.facebook.com'},
-    {checked: true, name: 'e熊貓_搜=>', target: 'www.facebook.com'},
-    {checked: true, name: 'ex熊貓_搜=>', target: 'www.facebook.com'},
-    {checked: true, name: '紳士_搜=>', target: 'www.facebook.com'},
+    {name: 'nh_搜尋/', target: 'https://nhentai.net/search/?q=%s'},
+    {name: '紳士_搜尋/', target: 'https://wnacg.com/albums-index-page-1-sname-%s.html'},
+    {name: 'e熊貓_搜尋/', target: 'https://e-hentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
+    {name: 'ex熊貓_搜尋/', target: 'https://exhentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
+    {name: 'nh_本/', target: 'https://nhentai.net/g/%s'},
+    {name: '紳士_本_ID/', target: 'https://wnacg.com/photos-index-aid-%s.html'},
   ]
-
 };
 let page = $("#settingInput");
 
@@ -61,7 +61,12 @@ function constructOptions() {
     if (!!storeData && !!storeData.allData) {
       allData = storeData.allData;
     } else {
-      allData = settings.default;
+      let code = $("#code").val();
+      if (!!settings[code]) {
+        allData = settings[code];
+      } else {
+        allData = settings.default;
+      }
     }
 
     page.empty();

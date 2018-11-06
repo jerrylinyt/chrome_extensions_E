@@ -32,7 +32,29 @@
 ## 設定說明
 先找到你想自訂的連結，再用 "%S" 代表你所要取代網址內的部分
 
-TODO.....
+以蝦皮為例
+
+到蝦皮的搜尋隨便打些什麼 ex: aabb123
+
+![setting-example1](https://github.com/JerryLin0920/chrome_extensions_E/blob/master/readmeImage/image5.png)
+
+這時候就可以在網址列看到剛剛打過的aabb123，
+
+嘗試把多餘的字拿掉之後發現還是回到一樣的網頁
+
+這時候就知道其實 ` https://shopee.tw/search?keyword=aabb123 ` 才是我們需要的部分
+
+![setting-example2](https://github.com/JerryLin0920/chrome_extensions_E/blob/master/readmeImage/image6.png)
+
+這時候把它剪下後，到設定頁就可以打上想看到的名稱，對應的網址
+
+記得要把要取代的部分換成 ` %s ` 後按下儲存！
+
+![setting-example3](https://github.com/JerryLin0920/chrome_extensions_E/blob/master/readmeImage/image7.png)
+
+完成！！！！
+
+![setting-example4](https://github.com/JerryLin0920/chrome_extensions_E/blob/master/readmeImage/image8.png)
 
 ## Stargazers over time
 [![Stargazers over time](https://starcharts.herokuapp.com/JerryLin0920/chrome_extensions_E.svg)](https://starcharts.herokuapp.com/JerryLin0920/chrome_extensions_E)
