@@ -11,8 +11,9 @@ function initContextMenus() {
   .then(function (storeData) {
     if (!!storeData && !!storeData.allData) {
       storeData.allData.forEach(function (data) {
+        let title = !!data.name && data.name.indexOf("%s") !== -1 ? data.name : `${data.name}%s`;
         chrome.contextMenus.create({
-          "title": data.name + "%s",
+          "title": title,
           "contexts": ["all"],
           "onclick": (info) => {
             chrome.tabs.create({

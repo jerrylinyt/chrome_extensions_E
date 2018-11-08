@@ -148,16 +148,16 @@ document.addEventListener('DOMContentLoaded', constructOptions);
 
 const settings = {
   default: [
-    {sort:1, name: 'Ig_ID', target: 'https://www.instagram.com/%s'},
+    {sort:1, name: 'Ig_ID/ "%s"', target: 'https://www.instagram.com/%s'},
     {sort:2, name: 'twitter_ID', target: 'https://twitter.com/%s'},
-    {sort:3, name: 'Facebook_search',target: 'https://www.facebook.com/search/top/?q=%s'}
+    {sort:3, name: 'Facebook_search/ "%s"',target: 'https://www.facebook.com/search/top/?q=%s'}
   ],
   ex: [
-    {sort:1, name: 'nh_搜尋/', target: 'https://nhentai.net/search/?q=%s'},
-    {sort:2, name: '紳士_搜尋/', target: 'https://wnacg.com/albums-index-page-1-sname-%s.html'},
-    {sort:3, name: 'e熊貓_搜尋/', target: 'https://e-hentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
-    {sort:4, name: 'ex熊貓_搜尋/', target: 'https://exhentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
-    {sort:5, name: 'nh_本/', target: 'https://nhentai.net/g/%s'},
-    {sort:6, name: '紳士_本_ID/', target: 'https://wnacg.com/photos-index-aid-%s.html'},
+    {sort:1, name: 'nh_搜尋/ "%s"', target: 'https://nhentai.net/search/?q=%s'},
+    {sort:2, name: '紳士_搜尋/ "%s"', target: 'https://wnacg.com/albums-index-page-1-sname-%s.html'},
+    {sort:3, name: 'e熊貓_搜尋/ "%s"', target: 'https://e-hentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
+    {sort:4, name: 'ex熊貓_搜尋/ "%s"', target: 'https://exhentai.org/?f_doujinshi=1&f_manga=1&f_artistcg=1&f_gamecg=1&f_western=1&f_non-h=1&f_imageset=1&f_cosplay=1&f_asianporn=1&f_misc=1&f_search=%s'},
+    {sort:5, name: 'nh_本/ "%s"', target: 'https://nhentai.net/g/%s'},
+    {sort:6, name: '紳士_本_ID/ "%s"', target: 'https://wnacg.com/photos-index-aid-%s.html'},
   ]
 };
